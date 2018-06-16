@@ -45,9 +45,10 @@ export default {
   methods: {
     add: function () {
       if (this.checkMacAddr && this.checkName) {
+        const newItem = {macaddr: this.mac, description: this.name}
         let params = new URLSearchParams()
-        params.append('macaddr', '12345999')
-        params.append('description', 'hogefuga')
+        params.append('macaddr', this.mac)
+        params.append('description', this.name)
 
         axios.post('http://localhost:3001/users', params)
           .then(response => {
@@ -56,9 +57,8 @@ export default {
             console.log(error)
           })
 
-        this.$eventHub.$emit('myAdd', {mac: this.mac, name: this.name})
+        this.$eventHub.$emit('myAdd', newItem)
         console.log('sent')
-        console.log({mac: this.mac, name: this.name})
         this.mac = ''
         this.name = ''
       }

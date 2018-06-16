@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.16.3",
+    "vue": "^2.5.16",
+    "vue-cli": "^2.9.6",
+    "vue-devtools": "^4.1.4"
+  }
+}

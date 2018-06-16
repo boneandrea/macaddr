@@ -1,0 +1,12 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "manage macaddrs",
+  "main": "index.js",
+  "author": "boneandrea",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-generator": "^4.16.0"
+  }
+}

@@ -2,10 +2,10 @@
 <li>
   <div class="columns">
     <div class="column">
-      <input v-model="item.mac" class="input" v-bind:disabled="!editing"/>
+      <input v-model="item.macaddr" class="input" v-bind:disabled="!editing"/>
     </div>
     <div class="column">
-      <input v-model="item.name" class="input" v-bind:disabled="!editing"/>
+      <input v-model="item.description" class="input" v-bind:disabled="!editing"/>
     </div>
     <div class="column">
       <button class="button" v-on:click="edit">edit</button>

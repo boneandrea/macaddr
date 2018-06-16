@@ -15,13 +15,8 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 
   console.log(req.body)
-  // const mac = macaddress.build({
-  //   macaddr: req.body.macaddr,
-  //   description: req.body.description
-  // });
-
-  // console.log(mac)
-  // console.log(mac.save())
+  const mac = models.macaddress.create(req.body)
+  console.log(mac)
   
   res.send('""');
   res.status(201).end();

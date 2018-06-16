@@ -10,6 +10,7 @@
 
 <script>
 
+import axios from 'axios'
 import swal from 'sweetalert2'
 import Item from '@/components/Item'
 export default {
@@ -17,11 +18,7 @@ export default {
   data () {
     return {
       title: 'ItemList',
-      items: [
-        {id: 0, 'mac': '00:00:00:00:00:00', 'name': 'myPC0'},
-        {id: 1, 'mac': '00:00:00:00:00:01', 'name': 'myPC1'},
-        {id: 2, 'mac': '00:00:00:00:00:02', 'name': 'myPC2'}
-      ]
+      items: []
     }
   },
   components: {
@@ -46,6 +43,15 @@ export default {
         }
       })
     }
+  },
+  mounted: function () {
+    axios.get('http://localhost:3001/users')
+      .then(response => {
+        console.log(response.data.macaddrs)
+        this.items = response.data.macaddrs
+      }).catch(error => {
+        console.log(error)
+      })
   },
   created: function () {
     this.$eventHub.$on('myAdd', this.add)

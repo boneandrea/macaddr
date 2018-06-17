@@ -17,6 +17,7 @@
 
 <script>
 import swal from 'sweetalert2'
+import axios from 'axios'
 export default {
   'name': 'Item',
   props: ['item'],
@@ -40,7 +41,13 @@ export default {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.value) {
-          this.$emit('remove', index)
+          axios.delete('http://' + window.location.hostname + ':3001/users/' + index + '?_method=DELETE', {data: {id: index}})
+            .then(response => {
+              console.log(response)
+              this.$emit('remove', index)
+            }).catch(error => {
+              console.log(error)
+            })
         }
       })
     }

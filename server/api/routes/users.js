@@ -13,13 +13,18 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/', function(req, res, next) {
-
-  console.log(req.body)
   const mac = models.macaddress.create(req.body)
-  console.log(mac)
-  
   res.send('""');
   res.status(201).end();
+});
+
+router.delete('/:id', function(req, res, next) {
+  models.macaddress.findById(req.params.id)
+              .then((user)=>{
+                user.destroy()
+              })
+  
+  res.status(200).end();
 });
 
 module.exports = router;

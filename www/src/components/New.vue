@@ -50,7 +50,7 @@ export default {
         params.append('macaddr', this.mac)
         params.append('description', this.name)
 
-        axios.post('http://localhost:3001/users', params)
+        axios.post('http://' + window.location.hostname + ':3001/users', params)
           .then(response => {
             console.log('送信したテキスト: ' + response.data.text)
           }).catch(error => {

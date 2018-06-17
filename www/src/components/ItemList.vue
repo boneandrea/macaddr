@@ -45,7 +45,7 @@ export default {
     }
   },
   mounted: function () {
-    axios.get('http://localhost:3001/users')
+    axios.get('http://' + window.location.hostname + ':3001/users')
       .then(response => {
         console.log(response.data.macaddrs)
         this.items = response.data.macaddrs

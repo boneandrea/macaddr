@@ -6,20 +6,20 @@ var bodyParser = require('body-parser');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  models.macaddress.all().then(macaddrs => {
+  models.MacAddress.all().then(macaddrs => {
     res.send({macaddrs: macaddrs});
   });
 });
 
 
 router.post('/', function(req, res, next) {
-  const mac = models.macaddress.create(req.body)
+  const mac = models.MacAddress.create(req.body)
   res.send('""');
   res.status(201).end();
 });
 
 router.put('/:id', function(req, res, next) {
-  models.macaddress.findById(req.params.id)
+  models.MacAddress.findById(req.params.id)
     .then((user) => {
       user.update(req.body)
     })
@@ -27,7 +27,7 @@ router.put('/:id', function(req, res, next) {
 });
 
 router.delete('/:id', function(req, res, next) {
-  models.macaddress.findById(req.params.id)
+  models.MacAddress.findById(req.params.id)
     .then((user)=>{
       user.destroy()
     })

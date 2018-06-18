@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var macaddress = sequelize.define('macaddress', {
+  var macaddress = sequelize.define('MacAddress', {
     macaddr: DataTypes.STRING,
     description: DataTypes.TEXT
   }, {

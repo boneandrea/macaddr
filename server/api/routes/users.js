@@ -18,12 +18,19 @@ router.post('/', function(req, res, next) {
   res.status(201).end();
 });
 
+router.put('/:id', function(req, res, next) {
+  models.macaddress.findById(req.params.id)
+    .then((user) => {
+      user.update(req.body)
+    })
+  res.status(200).end();
+});
+
 router.delete('/:id', function(req, res, next) {
   models.macaddress.findById(req.params.id)
-              .then((user)=>{
-                user.destroy()
-              })
-  
+    .then((user)=>{
+      user.destroy()
+    })
   res.status(200).end();
 });
 

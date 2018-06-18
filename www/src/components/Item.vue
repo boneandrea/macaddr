@@ -1,14 +1,14 @@
 <template>
 <li>
   <div class="columns">
-    <div class="column">
-      <input v-model="item.macaddr" class="input" v-bind:disabled="!editing"/>
+    <div class="column" v-on:dblclick="toggleEditable">
+      <input v-model="item.macaddr" class="input" v-bind:disabled="!editing" />
     </div>
-    <div class="column">
+    <div class="column" v-on:dblclick="toggleEditable">
       <input v-model="item.description" class="input" v-bind:disabled="!editing"/>
     </div>
     <div class="column">
-      <button class="button" v-on:click="edit">edit</button>
+      <button class="button" v-on:click="update">update</button>
       <button class="button" v-on:click="remove(item.id)">remove</button>
     </div>
   </div>
@@ -27,7 +27,16 @@ export default {
     }
   },
   methods: {
-    edit: function () {
+    update: function () {
+      axios.put('http://' + window.location.hostname + ':3001/users/' + this.item.id + '?_method=PUT',
+        this.item)
+        .then(response => {
+          console.log(response)
+        }).catch(error => {
+          console.log(error)
+        })
+    },
+    toggleEditable: function () {
       this.editing = !this.editing
     },
     remove: function (index) {

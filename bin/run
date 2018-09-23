@@ -1,7 +1,10 @@
+#!/bin/bash
+
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 cd $SCRIPT_DIR
+killall -9 node
 
 (cd ../www && HOST=0.0.0.0 yarn run dev) &
 (cd ../server/api && HOST=0.0.0.0 PORT=3001 yarn start) &
 
-
+exit 0

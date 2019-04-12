@@ -2,9 +2,15 @@
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 cd $SCRIPT_DIR
-killall -9 node
 
-(cd ../www && HOST=0.0.0.0 yarn run dev) &
-(cd ../server/api && HOST=0.0.0.0 PORT=3001 yarn start) &
+export PATH=$HOME/.anyenv/bin:$PATH                                                                                                                                                                                                                                         
+eval "$(anyenv init -)"
+
+if [ "$1" = "server" ] ; then
+    cd ../server/api ; HOST=0.0.0.0 PORT=3001 yarn start
+else
+    cd ../www && HOST=0.0.0.0 yarn run dev
+fi
+
 
 exit 0

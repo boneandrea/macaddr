@@ -11,6 +11,9 @@
       <button class="button" v-on:click="update">update</button>
       <button class="button" v-on:click="remove(item.id)">remove</button>
     </div>
+    <div class="column msg">
+      {{resultMessage}}
+    </div>
   </div>
 </li>
 </template>
@@ -23,7 +26,8 @@ export default {
   props: ['item'],
   data () {
     return {
-      editing: false
+      editing: false,
+      resultMessage: ' '
     }
   },
   methods: {
@@ -31,7 +35,8 @@ export default {
       axios.put('http://' + window.location.hostname + ':3001/users/' + this.item.id + '?_method=PUT',
         this.item)
         .then(response => {
-          console.log(response)
+          this.resultMessage = 'updated'
+          setTimeout(() => { this.resultMessage = '' }, 1000)
         }).catch(error => {
           console.log(error)
         })
@@ -81,5 +86,8 @@ li {
 }
 a {
     color: #42b983;
+}
+.msg{
+  color: #f00;
 }
 </style>

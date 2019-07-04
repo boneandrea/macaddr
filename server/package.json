@@ -14,7 +14,7 @@
     "eslint": "^4.19.1",
     "express": "~4.16.0",
     "growl": "^1.10.0",
-    "handlebars": "^4.1.0",
+    "handlebars": "^4.1.2",
     "http-errors": "~1.6.2",
     "http-proxy-agent": "^2.1.0",
     "jade": "~1.11.0",

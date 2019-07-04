@@ -7,6 +7,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
-    "express-generator": "^4.16.0"
+    "express-generator": "^4.16.0",
+    "growl": "^1.10.0",
+    "http-proxy-agent": "^2.1.0",
+    "uglify-js": "^2.6.0"
   }
 }

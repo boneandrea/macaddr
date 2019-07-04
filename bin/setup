@@ -6,5 +6,5 @@ cd $DIR
 cd $DIR/../server && yarn
 cd $DIR/../server/api && yarn && node_modules/.bin/sequelize db:migrate --env development
 
-cd $DIR/../www && yarn
+cd $DIR/../client && yarn
 

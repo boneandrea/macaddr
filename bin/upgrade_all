@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for dir in `find -name package.json|grep -v node_module` ; do
+    echo "[$dir]"
+    D=`dirname $dir`
+
+    (cd $D && yarn upgrade)
+done

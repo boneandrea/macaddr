@@ -9,7 +9,7 @@ eval "$(anyenv init -)"
 if [ "$1" = "server" ] ; then
     cd ../server/api ; HOST=0.0.0.0 PORT=3001 yarn start
 else
-    cd ../www && HOST=0.0.0.0 yarn run dev
+    cd ../client && HOST=0.0.0.0 yarn run dev
 fi
 
 

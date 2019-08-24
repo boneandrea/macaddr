@@ -20,6 +20,7 @@ jobs:
       - checkout
 
       # Download and cache dependencies
+      # ここ設定したい
       # - restore_cache:
       #     keys:
       #       - v1-dependencies-{{ checksum "package.json" }}

@@ -34,6 +34,5 @@ jobs:
       #     key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests! 
-      - run: pwd && ls
-      - run: yarn test
+      - run: cd client && yarn test
       ###..
